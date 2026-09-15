@@ -1,0 +1,89 @@
+====================================================================================================
+Skill-based matching (strong Python + SQL, no degree info)
+----------------------------------------------------------------------------------------------------
+  [ 70.7%  Strong Match  ] Machine Learning Intern @ Foxglove Systems LLP (Data Science, Hyderabad, India, Remote)
+      matched: ['Pandas', 'Python', 'SQL'] | missing: ['NumPy']
+  [ 66.4%  Strong Match  ] Data Analyst Intern @ Lumenary Dynamics Inc (Data Science, Remote, Onsite)
+      matched: ['Python', 'SQL'] | missing: ['Scikit-learn']
+  [ 65.9%  Strong Match  ] Data Science Intern @ Brightloop Robotics (Data Science, Mumbai, India, Remote)
+      matched: ['Pandas', 'SQL'] | missing: ['Statistics']
+
+====================================================================================================
+Education-based matching (M.Tech CS, thin skills)
+----------------------------------------------------------------------------------------------------
+  [ 57.0%  Partial Match ] Java Developer Intern @ Quantumly Software Pvt Ltd (Software Development, Mumbai, India, Remote)
+      matched: ['C++'] | missing: ['Algorithms', 'Git']
+  [ 41.8%  Partial Match ] Full-Stack Developer Intern @ Nimbus Analytics Pvt Ltd (Software Development, Noida, India, Hybrid)
+      matched: ['C++'] | missing: ['Git', 'Python']
+  [ 41.7%  Partial Match ] Software Engineering Intern @ Cascade Ventures LLP (Software Development, Remote, Remote)
+      matched: ['C++'] | missing: ['Git', 'Java', 'JavaScript']
+
+====================================================================================================
+Experience-based matching (prior internship in cloud/devops)
+----------------------------------------------------------------------------------------------------
+  [ 94.5%  Perfect Match ] DevOps Intern @ Quantumly Systems Pvt Ltd (DevOps/Cloud, Hyderabad, India, Remote)
+      matched: ['AWS', 'CI/CD', 'Linux'] | missing: []
+  [ 85.5%  Perfect Match ] DevOps Intern @ Quantumly Networks Pvt Ltd (DevOps/Cloud, Chennai, India, Hybrid)
+      matched: ['AWS', 'CI/CD', 'Docker', 'Linux'] | missing: ['Python']
+  [ 84.7%  Strong Match  ] Cloud Engineering Intern @ Quantumly Software Pvt Ltd (DevOps/Cloud, Kolkata, India, Remote)
+      matched: ['AWS', 'CI/CD', 'Docker', 'Linux'] | missing: ['Python']
+
+====================================================================================================
+Project-based matching (ML side projects, no formal experience)
+----------------------------------------------------------------------------------------------------
+  [ 63.0%  Partial Match ] Data Analyst Intern @ Lumenary Dynamics Inc (Data Science, Remote, Onsite)
+      matched: ['Python', 'Scikit-learn'] | missing: ['SQL']
+  [ 61.5%  Partial Match ] Data Science Intern @ Foxglove Systems LLP (Data Science, Kochi, India, Remote)
+      matched: ['Python', 'Scikit-learn'] | missing: ['Machine Learning', 'NumPy', 'Pandas']
+  [ 59.3%  Partial Match ] Data Analyst Intern @ Cascade Solutions (Data Science, Noida, India, Onsite)
+      matched: ['Python', 'Scikit-learn'] | missing: ['Data Analysis']
+
+====================================================================================================
+Multiple-skill matching (full-stack + data)
+----------------------------------------------------------------------------------------------------
+  [ 64.1%  Partial Match ] Data Analyst Intern @ Lumenary Dynamics Inc (Data Science, Remote, Onsite)
+      matched: ['Python', 'SQL'] | missing: ['Scikit-learn']
+  [ 61.9%  Partial Match ] Data Science Intern @ Foxglove Systems LLP (Data Science, Kochi, India, Remote)
+      matched: ['Machine Learning', 'Python'] | missing: ['NumPy', 'Pandas', 'Scikit-learn']
+  [ 58.0%  Partial Match ] Web Developer Intern @ Wavecrest Solutions Pvt Ltd (Web Development, Gurugram, India, Remote)
+      matched: ['React'] | missing: ['CSS', 'JavaScript']
+
+====================================================================================================
+AI/ML internship seeker
+----------------------------------------------------------------------------------------------------
+  [ 60.6%  Partial Match ] Data Science Intern @ Foxglove Systems LLP (Data Science, Kochi, India, Remote)
+      matched: ['Machine Learning', 'Python'] | missing: ['NumPy', 'Pandas', 'Scikit-learn']
+  [ 57.8%  Partial Match ] Machine Learning Intern @ Trueform Technologies Pvt Ltd (Data Science, Hyderabad, India, Remote)
+      matched: ['Python'] | missing: ['NumPy', 'Statistics']
+  [ 57.1%  Partial Match ] Data Analyst Intern @ Northstar AI Inc (Data Science, Jaipur, India, Remote)
+      matched: ['Machine Learning'] | missing: ['Data Analysis', 'SQL']
+
+====================================================================================================
+Backend development internship seeker
+----------------------------------------------------------------------------------------------------
+  [ 66.6%  Strong Match  ] Software Testing Intern @ Cascade Ventures LLP (QA/Testing, Gurugram, India, Remote)
+      matched: ['Java', 'SQL'] | missing: ['Problem Solving', 'Selenium']
+  [ 56.4%  Partial Match ] Backend Developer Intern @ Silverline Cloud Inc (Software Development, Remote, Hybrid)
+      matched: ['Java', 'SQL'] | missing: ['Algorithms', 'REST API']
+  [ 51.3%  Partial Match ] Backend Developer Intern @ Silverline Cloud Inc (Software Development, Chennai, India, Remote)
+      matched: ['Java', 'SQL'] | missing: ['Git', 'JavaScript', 'Python']
+
+====================================================================================================
+Data Science internship seeker
+----------------------------------------------------------------------------------------------------
+  [ 90.9%  Perfect Match ] Data Science Intern @ Brightloop Robotics (Data Science, Mumbai, India, Remote)
+      matched: ['Pandas', 'SQL', 'Statistics'] | missing: []
+  [ 80.7%  Strong Match  ] Machine Learning Intern @ Foxglove Systems LLP (Data Science, Hyderabad, India, Remote)
+      matched: ['NumPy', 'Pandas', 'Python', 'SQL'] | missing: []
+  [ 75.1%  Strong Match  ] Data Analyst Intern @ Lumenary Dynamics Inc (Data Science, Remote, Onsite)
+      matched: ['Python', 'SQL'] | missing: ['Scikit-learn']
+
+====================================================================================================
+Generative AI internship seeker
+----------------------------------------------------------------------------------------------------
+  [ 52.9%  Partial Match ] Machine Learning Intern @ Foxglove Systems LLP (Data Science, Hyderabad, India, Remote)
+      matched: ['Python'] | missing: ['NumPy', 'Pandas', 'SQL']
+  [ 50.7%  Partial Match ] Software Testing Intern @ Quantumly Robotics LLP (QA/Testing, Gurugram, India, Remote)
+      matched: ['Python'] | missing: ['Git', 'Problem Solving', 'SQL', 'Selenium']
+  [ 50.2%  Partial Match ] Software Engineering Intern @ Pixelforge Softworks Pvt Ltd (Software Development, Mumbai, India, Remote)
+      matched: ['Python'] | missing: ['Data Structures', 'Java', 'JavaScript', 'REST API']

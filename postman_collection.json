@@ -1,0 +1,110 @@
+{
+  "info": {
+    "name": "AI Career Companion - Full API (Assignment 1 + Milestone 2 RAG)",
+    "description": "Auth, resume parsing (Assignment 1) and internship RAG matching (Milestone 2), against the merged FastAPI app.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:8000" },
+    { "key": "access_token", "value": "" },
+    { "key": "resume_id", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "1. Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"full_name\": \"Asha Rao\",\n  \"email\": \"asha.rao@example.com\",\n  \"password\": \"Passw0rd123\",\n  \"phone_number\": \"9876543210\"\n}"
+            },
+            "url": { "raw": "{{base_url}}/register", "host": ["{{base_url}}"], "path": ["register"] }
+          }
+        },
+        {
+          "name": "Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const data = pm.response.json();",
+                  "if (data.access_token) { pm.collectionVariables.set('access_token', data.access_token); }"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/x-www-form-urlencoded" }],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "username", "value": "asha.rao@example.com" },
+                { "key": "password", "value": "Passw0rd123" }
+              ]
+            },
+            "url": { "raw": "{{base_url}}/login", "host": ["{{base_url}}"], "path": ["login"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Resume Parsing",
+      "item": [
+        {
+          "name": "Upload Resume",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const data = pm.response.json();",
+                  "if (data.resume_id) { pm.collectionVariables.set('resume_id', data.resume_id); }"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "body": {
+              "mode": "formdata",
+              "formdata": [{ "key": "file", "type": "file", "src": "" }]
+            },
+            "url": { "raw": "{{base_url}}/upload-resume", "host": ["{{base_url}}"], "path": ["upload-resume"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Internship Matching (RAG)",
+      "item": [
+        {
+          "name": "Browse Internship Catalog",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{base_url}}/internships/", "host": ["{{base_url}}"], "path": ["internships", ""] }
+          }
+        },
+        {
+          "name": "Match Resume to Internships",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{access_token}}" }],
+            "url": {
+              "raw": "{{base_url}}/internships/match/{{resume_id}}?k=5",
+              "host": ["{{base_url}}"],
+              "path": ["internships", "match", "{{resume_id}}"],
+              "query": [{ "key": "k", "value": "5" }]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

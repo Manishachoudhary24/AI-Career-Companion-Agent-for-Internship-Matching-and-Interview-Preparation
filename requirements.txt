@@ -1,0 +1,38 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+python-multipart==0.0.9
+pydantic==2.9.2
+pydantic-settings==2.5.2
+python-dotenv==1.0.1
+email-validator==2.2.0
+
+# Database
+SQLAlchemy==2.0.35
+psycopg2-binary==2.9.9
+
+# Auth
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+bcrypt==4.0.1
+
+# LLM (hybrid resume parser)
+langchain==0.3.7
+langchain-groq==0.2.1
+langchain-core==0.3.17
+
+# File parsing
+PyMuPDF==1.24.11
+python-docx==1.1.2
+
+# Utilities
+tenacity==9.0.0
+
+# --- Internship Matching / RAG (Milestone 2) ---
+# Vector store + local embeddings, same langchain 0.3.x line as above.
+langchain-community==0.3.7
+langchain-huggingface==0.1.2
+faiss-cpu==1.9.0
+sentence-transformers==3.3.1
+# Native Groq SDK, used directly (not via LangChain) for the short
+# natural-language match summary in internship_matcher.py.
+groq==0.13.0
