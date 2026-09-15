@@ -1,1122 +1,686 @@
-\# CareerPilot
+# CareerPilot – AI Career Companion for Internship Matching & Interview Preparation
 
+CareerPilot is an AI-powered career assistance platform designed to help students discover suitable internships, analyze their resumes, identify skill gaps, prepare for interviews, and manage their internship applications.
 
+The platform combines **Resume Intelligence, Semantic Search, FAISS-based Matching, AI-powered Analysis, RAG-based Career Assistance, and Interview Preparation** into a single application.
 
-\### AI-Powered Internship Matching and Career Preparation Platform
+---
 
+## Features
 
+### 1. Resume Management
 
-CareerPilot is an AI-powered career companion designed to help students discover relevant internship opportunities, understand their skill profile, improve applications, and prepare for interviews from a single platform.
+- Upload your resume in a supported format.
+- Store and manage uploaded resumes.
+- Extract important information from the resume.
+- Identify skills, education, projects, and experience.
+- Use extracted resume information for further career recommendations.
 
+### 2. Resume Parsing & Skill Extraction
 
+CareerPilot analyzes the uploaded resume and extracts relevant information such as:
 
-The system combines resume parsing, semantic search, vector-based internship retrieval, AI-assisted analysis, application tracking, cover-letter generation, and interview preparation to create a personalized career workflow.
+- Technical skills
+- Soft skills
+- Education
+- Work experience
+- Projects
+- Certifications
+- Other relevant career information
 
+The extracted information is used by other modules for personalized recommendations.
 
+### 3. Internship Discovery
 
-\---
+The platform provides an internship knowledge base where users can explore available internship opportunities based on their interests and profile.
 
+Users can:
 
+- Browse internships
+- View internship details
+- Explore suitable opportunities
+- Track applied internships
 
-\## Overview
+### 4. AI Internship Matching
 
+CareerPilot uses semantic search and vector similarity to match a student's resume with relevant internship opportunities.
 
-
-Finding the right internship often requires students to search across multiple platforms, repeatedly modify their resumes, identify missing skills, prepare for interviews, and track applications separately.
-
-
-
-CareerPilot brings these activities together into one platform.
-
-
-
-A student can:
-
-
-
-\- Create and manage a career profile
-
-\- Upload a PDF or DOCX resume
-
-\- Extract structured information from the resume
-
-\- Discover internships using semantic matching
-
-\- View personalized internship matches
-
-\- Identify relevant skill gaps
-
-\- Generate tailored cover letters
-
-\- Track internship applications
-
-\- Prepare for interviews using a dedicated AI preparation agent
-
-\- Interact with an AI career assistant
-
-\- Maintain multiple parsed resumes and reuse them for career workflows
-
-
-
-\---
-
-
-
-\## Key Features
-
-
-
-\### 1. Resume Intelligence
-
-
-
-Upload a PDF or DOCX resume and convert it into structured career information.
-
-
-
-The resume workflow can extract information such as:
-
-
-
-\- Personal details
-
-\- Professional summary
-
-\- Technical skills
-
-\- Education
-
-\- Work experience
-
-\- Projects
-
-\- Certifications
-
-\- Languages
-
-\- Achievements
-
-
-
-Parsed resume information can then be used by the matching and career-preparation workflows.
-
-
-
-\---
-
-
-
-\### 2. Internship Discovery
-
-
-
-CareerPilot provides an internship catalog that can be searched and filtered by users.
-
-
-
-Users can explore opportunities based on information such as:
-
-
-
-\- Role
-
-\- Company
-
-\- Domain
-
-\- Location
-
-\- Work mode
-
-\- Required skills
-
-\- Internship duration
-
-
-
-\---
-
-
-
-\### 3. AI-Powered Internship Matching
-
-
-
-CareerPilot uses semantic vector search to identify internships that best match a student's resume.
-
-
-
-The matching pipeline combines:
-
-
-
-\- Resume information
-
-\- Technical skills
-
-\- Education
-
-\- Experience
-
-\- Semantic similarity
-
-\- Location
-
-\- Internship requirements
-
-
-
-FAISS is used for vector retrieval, while sentence-transformer embeddings are used to represent resume and internship information.
-
-
-
-\---
-
-
-
-\### 4. Skill Gap Analysis
-
-
-
-CareerPilot helps students understand the difference between their current skills and the skills expected for a target role.
-
-
-
-The analysis can be used to identify:
-
-
-
-\- Existing skills
-
-\- Missing skills
-
-\- Areas for improvement
-
-\- Priority learning areas
-
-
-
-This helps students create a more focused preparation plan.
-
-
-
-\---
-
-
-
-\### 5. Cover Letter Generation
-
-
-
-CareerPilot can generate a personalized cover letter based on the student's resume/profile and a selected internship opportunity.
-
-
-
-This helps users create application-specific content instead of relying on a generic cover letter.
-
-
-
-\---
-
-
-
-\### 6. Interview Preparation Agent
-
-
-
-The Interview Preparation Agent provides role-focused interview preparation.
-
-
-
-It can help students with:
-
-
-
-\- Technical interview questions
-
-\- HR questions
-
-\- Role-specific preparation
-
-\- Answer guidance
-
-\- Interview strategies
-
-\- Preparation roadmaps
-
-\- Learning topics
-
-
-
-The active resume can be used as context so that preparation is relevant to the student's own background.
-
-
-
-\---
-
-
-
-\### 7. AI Career Assistant
-
-
-
-CareerPilot includes an AI-powered conversational assistant that provides guidance related to the platform and career workflow.
-
-
-
-The assistant uses retrieval-augmented generation (RAG) with the application's product knowledge base.
-
-
-
-It supports:
-
-
-
-\- Conversational sessions
-
-\- Chat history
-
-\- New conversations
-
-\- Message persistence
-
-\- Product-related questions
-
-\- Career workflow guidance
-
-
-
-\---
-
-
-
-\### 8. Application Tracking
-
-
-
-Students can apply to internships directly from the platform and view their application history.
-
-
-
-The application tracker stores information such as:
-
-
-
-\- Internship
-
-\- Company
-
-\- Application date
-
-\- Application status
-
-
-
-\---
-
-
-
-\### 9. Career Profile
-
-
-
-Students can maintain a dedicated career profile containing information such as:
-
-
-
-\- Personal details
-
-\- Skills
-
-\- Education
-
-\- Experience
-
-\- Target roles
-
-\- Preferred domains
-
-\- Preferred locations
-
-\- Work-mode preferences
-
-\- Professional links
-
-\- Profile photo
-
-
-
-\---
-
-
-
-\## System Workflow
-
-
+The matching pipeline uses:
 
 ```text
-
-&#x20;                ┌─────────────────────┐
-
-&#x20;                │    Student Profile   │
-
-&#x20;                └──────────┬──────────┘
-
-&#x20;                           │
-
-&#x20;                           ▼
-
-&#x20;                ┌─────────────────────┐
-
-&#x20;                │    Resume Upload    │
-
-&#x20;                └──────────┬──────────┘
-
-&#x20;                           │
-
-&#x20;                           ▼
-
-&#x20;                ┌─────────────────────┐
-
-&#x20;                │   Resume Parsing    │
-
-&#x20;                │  PDF / DOCX → Data  │
-
-&#x20;                └──────────┬──────────┘
-
-&#x20;                           │
-
-&#x20;                           ▼
-
-&#x20;                ┌─────────────────────┐
-
-&#x20;                │ Semantic Embeddings │
-
-&#x20;                │  SentenceTransform  │
-
-&#x20;                └──────────┬──────────┘
-
-&#x20;                           │
-
-&#x20;                           ▼
-
-&#x20;                ┌─────────────────────┐
-
-&#x20;                │   FAISS Retrieval   │
-
-&#x20;                │ Internship Matching │
-
-&#x20;                └──────────┬──────────┘
-
-&#x20;                           │
-
-&#x20;                           ▼
-
-&#x20;                ┌─────────────────────┐
-
-&#x20;                │ Personalized Roles  │
-
-&#x20;                └──────────┬──────────┘
-
-&#x20;                           │
-
-&#x20;             ┌─────────────┼─────────────┐
-
-&#x20;             ▼             ▼             ▼
-
-&#x20;      Cover Letters   Skill Analysis   Interview Prep
-
-&#x20;             │             │             │
-
-&#x20;             └─────────────┼─────────────┘
-
-&#x20;                           ▼
-
-&#x20;                ┌─────────────────────┐
-
-&#x20;                │ Application Tracker│
-
-&#x20;                └─────────────────────┘
-
-Technology Stack
-
-Frontend
-
-React
-
-JavaScript
-
-Vite
-
-React Router
-
-CSS
-
-Lucide React
-
-Backend
-
-Python
-
-FastAPI
-
-SQLAlchemy
-
-Pydantic
-
-JWT Authentication
-
-Database
-
-PostgreSQL
-
-AI / Machine Learning
-
-Groq
-
-LangChain
-
-Sentence Transformers
-
-Hugging Face
-
-FAISS
-
-Retrieval-Augmented Generation (RAG)
-
-Document Processing
-
-PyMuPDF
-
-python-docx
-
-Architecture
-
-&#x20;                        CareerPilot
-
-&#x20;                             │
-
-&#x20;            ┌────────────────┴────────────────┐
-
-&#x20;            │                                 │
-
-&#x20;            ▼                                 ▼
-
-&#x20;     React / Vite Frontend              FastAPI Backend
-
-&#x20;            │                                 │
-
-&#x20;            │                         ┌───────┼────────┐
-
-&#x20;            │                         │       │        │
-
-&#x20;            │                         ▼       ▼        ▼
-
-&#x20;            │                     PostgreSQL FAISS    Groq
-
-&#x20;            │                             │       │
-
-&#x20;            │                             │       ▼
-
-&#x20;            │                             │   AI / RAG
-
-&#x20;            │                             │
-
-&#x20;            └─────────────────────────────┘
-
-Project Structure
-
-AI\_Career\_Pilot/
-
+Resume
+   ↓
+Resume Parsing
+   ↓
+Skill & Experience Extraction
+   ↓
+Text Embedding
+   ↓
+FAISS Vector Search
+   ↓
+Internship Matching
+   ↓
+Compatibility Score
+```
+
+### 5. Skill Gap Analysis
+
+CareerPilot compares the user's existing skills with the requirements of suitable internship roles.
+
+It helps identify:
+
+- Existing skills
+- Missing skills
+- Recommended technologies
+- Learning areas
+- Skills required for specific roles
+
+### 6. Cover Letter Generation
+
+Users can generate personalized cover letters based on:
+
+- Resume information
+- Internship/job role
+- Skills
+- Experience
+- Projects
+- Role requirements
+
+### 7. Interview Preparation Agent
+
+The Interview Preparation Agent helps students prepare for interviews using their resume and selected career role.
+
+It provides:
+
+- Role-specific interview questions
+- Technical questions
+- HR questions
+- Answer guidance
+- Interview preparation strategies
+- Learning roadmaps
+- Recommended preparation topics
+
+The preparation agent can also use uploaded documents as additional context.
+
+### 8. AI Career Assistant
+
+CareerPilot includes an AI-powered career assistant that helps students with internship and career-related queries.
+
+The assistant can provide guidance related to:
+
+- Career roles
+- Internship preparation
+- Resume improvement
+- Skills
+- Interview preparation
+- Learning paths
+- Career planning
+
+The assistant uses relevant career knowledge through a retrieval-based approach.
+
+### 9. Application Tracking
+
+Students can track their internship applications and monitor their application journey.
+
+Application information can include:
+
+- Internship
+- Company
+- Application status
+- Application date
+- Other relevant details
+
+### 10. Career Profile
+
+Users can maintain their career profile containing information such as:
+
+- Personal details
+- Education
+- Skills
+- Projects
+- Experience
+- Career interests
+
+---
+
+# Application Workflow
+
+```text
+               ┌─────────────────────┐
+               │       Student       │
+               └──────────┬──────────┘
+                          │
+                          ▼
+               ┌─────────────────────┐
+               │   Upload Resume     │
+               └──────────┬──────────┘
+                          │
+                          ▼
+               ┌─────────────────────┐
+               │   Resume Parsing    │
+               └──────────┬──────────┘
+                          │
+                          ▼
+             ┌───────────────────────────┐
+             │ Skill / Experience        │
+             │ Extraction                │
+             └────────────┬──────────────┘
+                          │
+              ┌───────────┴───────────┐
+              │                       │
+              ▼                       ▼
+   ┌─────────────────────┐   ┌─────────────────────┐
+   │ Internship Matching │   │ Skill Gap Analysis  │
+   └──────────┬──────────┘   └──────────┬──────────┘
+              │                         │
+              ▼                         ▼
+   ┌─────────────────────┐   ┌─────────────────────┐
+   │ Recommended         │   │ Skill Improvement   │
+   │ Internships         │   │ Roadmap             │
+   └──────────┬──────────┘   └─────────────────────┘
+              │
+              ▼
+   ┌─────────────────────┐
+   │ Application Tracker │
+   └──────────┬──────────┘
+              │
+              ▼
+   ┌─────────────────────┐
+   │ Interview Preparation│
+   │ Agent               │
+   └──────────┬──────────┘
+              │
+              ▼
+   ┌─────────────────────┐
+   │ Career Readiness    │
+   └─────────────────────┘
+```
+
+---
+
+# System Architecture
+
+```text
+┌──────────────────────────────────────────────┐
+│                Frontend                      │
+│        React + Vite + CSS + Lucide          │
+└──────────────────────┬───────────────────────┘
+                       │
+                       │ HTTP / REST API
+                       ▼
+┌──────────────────────────────────────────────┐
+│                FastAPI Backend                │
+│                                              │
+│  Authentication                              │
+│  Resume Management                           │
+│  Internship Management                       │
+│  Matching                                    │
+│  Skill Gap Analysis                          │
+│  Interview Preparation                       │
+│  AI Career Assistant                         │
+└───────────────┬───────────────┬──────────────┘
+                │               │
+                ▼               ▼
+      ┌─────────────────┐   ┌─────────────────┐
+      │   PostgreSQL    │   │   FAISS Index   │
+      │   Database      │   │ Vector Search   │
+      └─────────────────┘   └────────┬────────┘
+                                     │
+                                     ▼
+                           ┌──────────────────┐
+                           │ Embedding Model  │
+                           │     MiniLM       │
+                           └────────┬─────────┘
+                                    │
+                                    ▼
+                           ┌──────────────────┐
+                           │   Groq LLM       │
+                           │ AI Generation    │
+                           └──────────────────┘
+```
+
+---
+
+# Technology Stack
+
+## Frontend
+
+- React
+- Vite
+- JavaScript
+- CSS
+- React Router
+- Lucide React
+
+## Backend
+
+- Python
+- FastAPI
+- SQLAlchemy
+
+## Database
+
+- PostgreSQL
+
+## AI & Machine Learning
+
+- Groq
+- Large Language Model
+- Sentence Transformers
+- MiniLM
+- FAISS
+
+## Retrieval
+
+- FAISS Vector Database
+- Semantic Search
+- Retrieval-Augmented Generation (RAG)
+
+## Development Tools
+
+- Visual Studio Code
+- Git
+- GitHub
+- Python Virtual Environment
+- PostgreSQL / pgAdmin
+
+---
+
+# AI Matching Pipeline
+
+CareerPilot uses semantic matching instead of relying only on exact keyword matching.
+
+```text
+Resume Text
+     ↓
+Text Processing
+     ↓
+Sentence Embeddings
+     ↓
+MiniLM
+     ↓
+FAISS Vector Index
+     ↓
+Similarity Search
+     ↓
+Relevant Internship Results
+     ↓
+AI Analysis
+     ↓
+Personalized Recommendations
+```
+
+This approach helps identify opportunities based on the semantic similarity between the student's profile and internship requirements.
+
+---
+
+# RAG-Based Career Assistant
+
+The Career Assistant uses a retrieval-based approach to provide relevant career guidance.
+
+```text
+User Query
+    ↓
+Query Processing
+    ↓
+Vector Search
+    ↓
+Relevant Knowledge Retrieval
+    ↓
+Context Construction
+    ↓
+LLM
+    ↓
+AI Response
+```
+
+The knowledge base can contain career and internship preparation resources such as:
+
+- Resume improvement
+- ATS guidance
+- Internship preparation
+- Skill development
+- DSA learning
+- Interview preparation
+
+---
+
+# Project Structure
+
+```text
+AI_Career_pilot/
 │
-
 ├── app/
-
-│   ├── models/
-
-│   ├── routes/
-
-│   ├── services/
-
-│   ├── data/
-
 │   ├── main.py
-
-│   └── config.py
-
+│   ├── models/
+│   ├── routes/
+│   ├── services/
+│   ├── schemas/
+│   └── ...
 │
-
 ├── frontend/
-
 │   ├── src/
-
 │   │   ├── App.jsx
-
 │   │   ├── api.js
-
 │   │   ├── CareerFeatures.jsx
-
 │   │   ├── ChatAssistant.jsx
-
 │   │   ├── InterviewPrep.jsx
-
 │   │   ├── styles.css
-
 │   │   └── ...
-
+│   │
 │   ├── package.json
-
 │   └── vite.config.js
-
 │
-
 ├── docs/
-
-├── screenshots of app/
-
+├── screenshots/
 ├── requirements.txt
-
 ├── .env.example
+└── README.md
+```
 
-├── postman\_collection.json
+---
 
-├── rag\_test\_results.txt
+# Installation & Setup
 
-└── test\_matching\_scenarios.py
-
-Requirements
-
-
+## Prerequisites
 
 Make sure the following are installed:
 
+- Python 3.12+
+- Node.js
+- npm
+- PostgreSQL
+- Git
 
+---
 
-Python 3.12+
+# 1. Clone the Repository
 
-Node.js
-
-npm
-
-PostgreSQL
-
-Installation
-
-1\. Clone the repository
-
+```bash
 git clone https://github.com/Manishachoudhary24/AI-Career-Companion-Agent-for-Internship-Matching-and-Interview-Preparation.git
+```
 
+Go to the project directory:
+
+```bash
 cd AI-Career-Companion-Agent-for-Internship-Matching-and-Interview-Preparation
+```
 
-2\. Backend Setup
+---
 
+# 2. Create Python Virtual Environment
 
+Windows:
 
-Create a Python virtual environment:
-
-
-
-Windows
-
-python -m venv venv
-
-
+```powershell
+python -m venv .venv
+```
 
 Activate it:
 
+```powershell
+.venv\Scripts\Activate.ps1
+```
 
+---
 
-.\\venv\\Scripts\\Activate.ps1
+# 3. Install Backend Dependencies
 
-
-
-Install the dependencies:
-
-
-
+```powershell
 pip install -r requirements.txt
+```
 
-3\. PostgreSQL Setup
+---
 
+# 4. Configure Environment Variables
 
-
-Create a PostgreSQL database for the project.
-
-
+Create a `.env` file based on `.env.example`.
 
 Example:
 
+```env
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/ai_career_companion_new
 
+GROQ_API_KEY=your_groq_api_key_here
 
-Database Name:
+GROQ_MODEL=openai/gpt-oss-20b
+```
 
-ai\_career\_companion
+Do not commit your actual API keys to GitHub.
 
+---
 
+# 5. Setup PostgreSQL
 
-The application uses the DATABASE\_URL environment variable to connect to PostgreSQL.
+Create the required PostgreSQL database.
 
+Example:
 
+```sql
+CREATE DATABASE ai_career_companion_new;
+```
 
-4\. Environment Configuration
+Make sure the PostgreSQL service is running before starting the backend.
 
+---
 
-
-Create a .env file in the project root.
-
-
-
-You can start from:
-
-
-
-.env.example
-
-
-
-Example configuration:
-
-
-
-DATABASE\_URL=postgresql://postgres:YOUR\_PASSWORD@localhost:5432/ai\_career\_companion
-
-
-
-JWT\_SECRET\_KEY=change\_this\_to\_a\_long\_random\_secret\_string
-
-JWT\_ALGORITHM=HS256
-
-
-
-ACCESS\_TOKEN\_EXPIRE\_MINUTES=60
-
-RESET\_TOKEN\_EXPIRE\_MINUTES=30
-
-
-
-GROQ\_API\_KEY=your\_groq\_api\_key
-
-GROQ\_MODEL=your\_groq\_model
-
-
-
-LLM\_TEMPERATURE=0.0
-
-LLM\_TIMEOUT\_SECONDS=60
-
-
-
-MAX\_UPLOAD\_MB=10
-
-
-
-UPLOAD\_DIR=uploads
-
-PARSED\_DIR=parsed
-
-
-
-EMBEDDING\_MODEL=sentence-transformers/all-MiniLM-L6-v2
-
-
-
-INTERNSHIP\_DATA\_PATH=app/data/internships.json
-
-INTERNSHIP\_INDEX\_DIR=app/data/faiss\_internship\_index
-
-AUTO\_BUILD\_INTERNSHIP\_INDEX=true
-
-
-
-PRODUCT\_KNOWLEDGE\_DOC\_PATH=app/data/product\_knowledge/product\_knowledge.md
-
-PRODUCT\_KNOWLEDGE\_INDEX\_DIR=app/data/faiss\_product\_knowledge
-
-AUTO\_BUILD\_PRODUCT\_KNOWLEDGE\_INDEX=true
-
-
-
-CHAT\_HISTORY\_LIMIT=12
-
-CHAT\_RAG\_TOP\_K=4
-
-
-
-APP\_ENV=development
-
-LOG\_LEVEL=INFO
-
-
-
-CORS\_ORIGINS=\*
-
-
-
-Never commit your .env file or expose your API keys publicly.
-
-
-
-5\. Start the Backend
-
-
+# 6. Start the Backend
 
 From the project root:
 
+```powershell
+uvicorn app.main:app --reload
+```
 
+The FastAPI backend will normally run at:
 
-python -m uvicorn app.main:app --reload
-
-
-
-The backend should be available at:
-
-
-
+```text
 http://127.0.0.1:8000
+```
 
+API documentation is available at:
 
-
-API documentation:
-
-
-
+```text
 http://127.0.0.1:8000/docs
+```
 
-6\. Frontend Setup
+---
 
+# 7. Install Frontend Dependencies
 
+Open another terminal and go to the frontend directory:
 
-Open another terminal.
-
-
-
-Move to the frontend directory:
-
-
-
+```powershell
 cd frontend
+```
 
+Install packages:
 
-
-Install frontend dependencies:
-
-
-
+```powershell
 npm install
+```
 
+---
 
+# 8. Start the Frontend
 
-Start the development server:
-
-
-
+```powershell
 npm run dev
+```
 
+Vite will display the local development URL, normally:
 
-
-The frontend should be available at:
-
-
-
+```text
 http://localhost:5173
+```
 
-Application Flow
+Open that URL in your browser.
 
-Register / Login
+---
 
-&#x20;      │
+# Environment Variables
 
-&#x20;      ▼
+The application uses environment variables for configuration.
 
-Career Profile
+Example:
 
-&#x20;      │
+```env
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/your_database
 
-&#x20;      ▼
+GROQ_API_KEY=your_api_key
 
-Upload Resume
+GROQ_MODEL=openai/gpt-oss-20b
+```
 
-&#x20;      │
+### Security
 
-&#x20;      ▼
+Never upload:
 
-AI Resume Parsing
+```text
+.env
+```
 
-&#x20;      │
+to GitHub when it contains real credentials.
 
-&#x20;      ▼
+Use:
 
-Personalized Internship Matching
+```text
+.env.example
+```
 
-&#x20;      │
+for sharing configuration templates.
 
-&#x20;      ├──────────────► Skill Gap Analysis
+---
 
-&#x20;      │
+# API Modules
 
-&#x20;      ├──────────────► Cover Letter Generation
+The backend provides APIs for major application modules including:
 
-&#x20;      │
-
-&#x20;      ├──────────────► Interview Preparation Agent
-
-&#x20;      │
-
-&#x20;      └──────────────► Application Tracking
-
-&#x20;                            
-
-&#x20;                     AI Career Assistant
-
-&#x20;                             │
-
-&#x20;                             ▼
-
-&#x20;                      Career Guidance
-
-API Modules
-
-
-
-The backend provides functionality for:
-
-
-
+```text
 Authentication
-
-User registration and login
-
-Password management
-
-Career profile management
-
-Resume upload and parsing
-
-Parsed resume management
-
-Internship retrieval
-
-Internship matching
-
-Internship applications
-
-Cover-letter generation
-
-AI chat sessions
-
-AI chat messages
-
-Interview preparation sessions
-
-Interview preparation document upload
-
-AI Matching Pipeline
-
-
-
-CareerPilot uses a semantic matching pipeline rather than relying only on keyword matching.
-
-
-
-Resume
-
-&#x20; │
-
-&#x20; ▼
-
+    ↓
+Resume Management
+    ↓
 Resume Parsing
+    ↓
+Internship Management
+    ↓
+Internship Matching
+    ↓
+Skill Gap Analysis
+    ↓
+Interview Preparation
+    ↓
+AI Career Assistant
+    ↓
+Application Tracking
+```
+
+FastAPI automatically provides interactive API documentation through:
+
+```text
+/docs
+```
+
+---
+
+# Main User Journey
+
+```text
+Register / Login
+       ↓
+Create Career Profile
+       ↓
+Upload Resume
+       ↓
+Resume Analysis
+       ↓
+View Extracted Skills
+       ↓
+Explore Recommended Internships
+       ↓
+Check Skill Gaps
+       ↓
+Improve Resume / Generate Cover Letter
+       ↓
+Track Applications
+       ↓
+Prepare for Interviews
+       ↓
+Use AI Career Assistant
+```
+
+---
+
+# Key Objectives
+
+CareerPilot aims to:
+
+- Simplify internship discovery for students.
+- Analyze resumes using AI.
+- Match students with relevant internship opportunities.
+- Identify missing skills for desired roles.
+- Generate personalized career guidance.
+- Improve interview preparation.
+- Help students manage internship applications.
+- Provide an integrated career preparation platform.
+
+---
+
+# Future Enhancements
+
+Possible future improvements include:
+
+- Real-time internship data integration
+- Advanced recommendation algorithms
+- Job application automation
+- More detailed compatibility scoring
+- Interview performance analysis
+- Voice-based interview practice
+- More AI-powered career insights
+- Mobile application
+- Personalized learning recommendations
+- Advanced analytics dashboard
+
+---
+
+# Why CareerPilot?
+
+Students often use multiple platforms for:
+
+```text
+Resume Building
+      +
+Internship Search
+      +
+Skill Development
+      +
+Interview Preparation
+      +
+Application Tracking
+```
+
+CareerPilot brings these activities together into one platform.
+
+The goal is to create a more personalized and AI-assisted internship preparation journey for students.
 
-&#x20; │
+---
 
-&#x20; ▼
+# Project Status
 
-Structured Career Data
+CareerPilot is developed as an AI-powered internship matching and interview preparation platform using modern web development, semantic search, vector retrieval, and generative AI technologies.
 
-&#x20; │
+---
 
-&#x20; ▼
+# Author
 
-Text Embeddings
+**Manisha Choudhary**
 
-&#x20; │
 
-&#x20; ▼
+---
 
-FAISS Vector Search
-
-&#x20; │
-
-&#x20; ▼
-
-Candidate Internship Retrieval
-
-&#x20; │
-
-&#x20; ▼
-
-Additional Matching Factors
-
-&#x20; │
-
-&#x20; ├── Skills
-
-&#x20; ├── Education
-
-&#x20; ├── Experience
-
-&#x20; └── Location
-
-&#x20; │
-
-&#x20; ▼
-
-Ranked Internship Results
-
-RAG Assistant
-
-
-
-The AI assistant uses a retrieval-based architecture.
-
-
-
-User Question
-
-&#x20;     │
-
-&#x20;     ▼
-
-Embedding / Retrieval
-
-&#x20;     │
-
-&#x20;     ▼
-
-Product Knowledge Vector Store
-
-&#x20;     │
-
-&#x20;     ▼
-
-Relevant Context
-
-&#x20;     │
-
-&#x20;     ▼
-
-Groq LLM
-
-&#x20;     │
-
-&#x20;     ▼
-
-AI Response
-
-
-
-This allows the assistant to use relevant application knowledge when responding to supported product-related questions.
-
-
-
-Security
-
-
-
-The application includes:
-
-
-
-JWT-based authentication
-
-Password hashing
-
-Authenticated API requests
-
-Protected user-specific resources
-
-Environment-based secret configuration
-
-
-
-Sensitive values such as API keys and database passwords should always remain in .env.
-
-
-
-Testing
-
-
-
-The repository includes resources for testing the matching functionality:
-
-
-
-test\_matching\_scenarios.py
-
-rag\_test\_results.txt
-
-
-
-API endpoints can also be tested using the included:
-
-
-
-postman\_collection.json
-
-Future Enhancements
-
-
-
-Potential future improvements include:
-
-
-
-Real-time internship data ingestion
-
-More advanced recommendation models
-
-Improved skill-gap learning roadmaps
-
-Interview performance analytics
-
-Application reminders and notifications
-
-More comprehensive ATS analysis
-
-Role-specific learning recommendations
-
-Deployment to a production cloud environment
-
-Project Goals
-
-
-
-CareerPilot is designed around a simple goal:
-
-
-
-Help students move from a resume to a realistic career opportunity with less friction.
-
-
-
-Instead of treating resume building, opportunity discovery, skill development, applications, and interview preparation as separate tasks, CareerPilot connects them into one workflow.
-
-
-
-License
-
-
+# License
 
 This project is licensed under the MIT License.
 
-
-
-Author
-
-
-
-Manisha Choudhary
-
-
-
-AI-powered Career Platform for Internship Discovery, Matching and Interview Preparation.
 
